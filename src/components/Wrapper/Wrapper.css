@@ -1,0 +1,13 @@
+.wrapper {
+  background: rgb(175, 175, 175);
+  background-image: url('https://static5.comicvine.com/uploads/original/14/149643/5543270-planet+namek.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-content: flex-start;
+  overflow: auto;
+  padding-bottom: 50px;
+}
