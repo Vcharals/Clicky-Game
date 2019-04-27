@@ -1,26 +1,23 @@
 {
-  "name": "clicky-game",
-  "version": "1.0.0",
-  "description": "#### Test your memory with your heroes and villains from Dragon Ball Z.",
-  "main": "index.js",
-  "scripts": {
-    "start": "react-scripts start",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Vcharals/Clicky-Game.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Vcharals/Clicky-Game/issues"
-  },
-  "homepage": "https://vcharals.github.io/Clicky-Game/",
+  "name": "dbz-clicky-game",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "^3.0.0"
+  },
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [
