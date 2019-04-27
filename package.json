@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/Vcharals/Clicky-Game/issues"
   },
-  "homepage": "https://github.com/Vcharals/Clicky-Game#readme",
+  "homepage": "https://vcharals.github.io/Clicky-Game/",
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
