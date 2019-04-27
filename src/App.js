@@ -9,6 +9,8 @@ import Column from "./Column";
 import friends from "./friends.json";
 import "./App.css";
 
+
+
 function shuffleFriends(array) {
   for (let i = array.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
@@ -37,16 +39,26 @@ class App extends Component {
   };
 
   handleIncrement = () => {
-    const newScore = this.state.currentScore + 1;
+    console.log("this.state.currentScore");
+    //scenario: clicking the last card
+    // means: current score is 11
+    // then we do operations
+    if (this.state.currentScore === 11) {
+      this.setState({
+        currentScore: 12,
+        topScore: 12,
+        rightWrong: "I expected nothing less from a true Saiyan!"
+      })
+      return
+    }
+
+    const newScore = this.state.currentScore +1;
     this.setState({
       currentScore: newScore,
-      rightWrong: ""
+      rightWrong: "Keep going, you're power is almost over 9000!"
     });
     if (newScore >= this.state.topScore) {
       this.setState({ topScore: newScore });
-    }
-    else if (newScore === 12) {
-      this.setState({ rightWrong: "I expected nothing less from a true Saiyan!" });
     }
     this.handleShuffle();
   };
@@ -67,25 +79,30 @@ class App extends Component {
   };
 
   render() {
+    const { currentScore, topScore, friends, rightWrong } = this.state;
+    console.log("this.state.currentScore", rightWrong);
+
     return (
       <Wrapper>
         <Nav
           title="DBZ Clicky Game"
-          score={this.state.currentScore}
-          topScore={this.state.topScore}
-          rightWrong={this.state.rightWrong}
+          score={currentScore}
+          topScore={topScore}
+          rightWrong={rightWrong}
         />
 
         <Title>
+
           Only click on each character once, or else you will be decimated!
+          
         </Title>
 
         <Container>
           <Row>
-            {this.state.friends.map(friend => (
-              <Column size="md-3 sm-6">
+            {friends.map((friend, idx) => (
+              <Column size="md-3 sm-6" key={idx}>
                 <FriendCard
-                  key={friend.id}
+                  key={idx}
                   handleClick={this.handleClick}
                   handleIncrement={this.handleIncrement}
                   handleReset={this.handleReset}
